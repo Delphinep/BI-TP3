@@ -149,11 +149,15 @@ public class Cluster implements java.lang.Iterable<Donnee>{
      */
     public Donnee ecartType(){
     	double res = 0;
+    	
         if (! ok){// on recalcule this.sd
-        		for (int i = 0; i < this.data.size(); i++){
-        			sd[i] += ((this.data.get(i).valeurDim(i)) - this.max[i]) / this.dimDonnee;
+        		for (int i = 0; i < this.dimDonnee; i++){
+        			for (Donnee d : this.data){
+	        			res += Math.pow(((d.valeurDim(i)) - this.moy[i]), 2);
+        			}
+        			sd[i]= Math.sqrt(res / this.data.size());
         		}	
-    
+        		
         }
         return new Donnee(sd);
     }
@@ -191,11 +195,11 @@ public class Cluster implements java.lang.Iterable<Donnee>{
         lesDonnees.add(new Donnee(t15));
         lesDonnees.add(new Donnee(t15));
         lesDonnees.add(new Donnee(t20));
-        System.out.println("nb donnees : "+lesDonnees.size()) ;
-        System.out.println("min : "+lesDonnees.min()) ;
-        System.out.println("max : "+lesDonnees.max()) ;
-        System.out.println("moy : "+lesDonnees.moyenne()) ;
-//        System.out.println("ecart type : "+lesDonnees.ecartType()) ;
+        System.out.println("nb donnees : "+lesDonnees.size());
+        System.out.println("min : "+lesDonnees.min());
+        System.out.println("max : "+lesDonnees.max());
+        System.out.println("moy : "+lesDonnees.moyenne());
+        System.out.println("ecart type : "+lesDonnees.ecartType()) ;
         /* affiche
            nb donnees : 9
            min : (5.0)
