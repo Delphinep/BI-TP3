@@ -147,14 +147,16 @@ public class Cluster implements java.lang.Iterable<Donnee>{
      * renvoie les écarts types pour toutes les dimensions.
      * @return une donnée constitutée des ecarts types pour toutes les dimensions
      */
-   /* public Donnee ecartType(){
+    public Donnee ecartType(){
+    	double res = 0;
         if (! ok){// on recalcule this.sd
-            // A COMPLETER
-            }
-            this.ok = true ;
+        		for (int i = 0; i < this.data.size(); i++){
+        			sd[i] += ((this.data.get(i).valeurDim(i)) - this.max[i]) / this.dimDonnee;
+        		}	
+    
         }
         return new Donnee(sd);
-    }*/
+    }
 
     /**
      * La compacité WC = somme pour toutes les données d de la distance de d au barycentre du cluster.

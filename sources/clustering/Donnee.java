@@ -12,7 +12,7 @@ public class Donnee{
     private int dim ;
     private double[] valeurs ; // on a dim = valeurs.length
     private int cluster = -1; // le numéro du cluster où on a rangé la donné
-    private boolean change =false ; // permet de savoir si la donnée a changé de cluster
+    private boolean change = false ; // permet de savoir si la donnée a changé de cluster
     private double distanceCentre ; // la distance entre la donnée et le centre du cluster
   
     /**
