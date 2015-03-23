@@ -1,3 +1,0 @@
-set terminal png
-set output 'mainsquare.png'
-plot '0.dat' '1.dat' '2.dat' '3.dat'
